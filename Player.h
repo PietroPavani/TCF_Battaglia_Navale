@@ -19,6 +19,7 @@ public:
     void drawScacchiera()const;
 // verifica se le caselle sono libere per ospitare una nave primi due int casella iniziale il terzo 
 // la lunghezza e la stringa india la direzione
+
     bool checkCaselle(int,int,int, string)const;
  
 private:

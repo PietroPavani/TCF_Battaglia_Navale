@@ -12,6 +12,7 @@ Player::Player(string nome):Name(nome){};
 void Player::setCella(int x, int y, int value){
     Scacchiera[x][y]=value;
 }
+
 void Player::drawScacchiera()const{
     cout << "                   "+Name+"\n            0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
@@ -29,4 +30,17 @@ void Player::drawScacchiera()const{
 	}
 
 }
+// per adesso controllo solo nella direzione destra
+bool Player::checkCaselle(int x, int y, int size, string direction)const{
+	bool result=true;
+	if(x+size>=10){
+		result=false;
+	}
+	for(int i=0;i<size;i++){
+		if(Scacchiera[x+i][y]!=0){
+			result=false;
+		}
+	}
 
+	return result;
+}
