@@ -30,6 +30,7 @@ private:
     int Size;
     bool Affondato;
     int *Position[];
+    int *StartPosition;
 
 };
 
