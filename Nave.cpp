@@ -8,7 +8,7 @@ using namespace std;
 #include "Nave.h"
 
 //bisogna aggiungere la parte riguardo alla posizione
-Nave::Nave(int &P, string D, int L):Direzione(D),Size(L),Affondato(false)
+Nave::Nave(int &P, string D, int L):Direzione(D),Size(L),Affondato(false),StartPosition(&P)
 {}
 void Nave::calcoloDanni(){
     int x=Size;

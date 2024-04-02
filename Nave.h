@@ -23,14 +23,14 @@ ogni volta e pertanto il nome serviva per l'opzione di stampa, a questo punto in
     bool getAffondato() const;
 // inizializza Position dando i puntotori alla scacchiera
     void setPosition();
-    
+
 private:
 
     string Direzione;
     int Size;
     bool Affondato;
-    int *Position[];
     int *StartPosition;
+    int *Position[];
 
 };
 
