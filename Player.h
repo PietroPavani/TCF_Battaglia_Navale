@@ -12,7 +12,7 @@ class Player{
     
 public:
 
-
+    Player(string);
 // i primi due valori sono la posizione nella scacchiera il terzo il valore da modificare
     void setCella(int, int, int );
 
@@ -24,6 +24,7 @@ public:
 private:
 
     int Scacchiera[10][10]={0};
+    string Name;
 
 };
 
