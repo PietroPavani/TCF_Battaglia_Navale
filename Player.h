@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-// lisa al gaib
+// aljdaocksodcsòodjjposafdk
 class Player{
     
 public:
