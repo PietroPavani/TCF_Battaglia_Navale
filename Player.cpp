@@ -23,9 +23,9 @@ string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
 
 
 
-
+// 0 mare 	1 nave nascosta		2 nave colpita 		3 mare mancato
 void Player::drawScacchiera()const{
-    cout << "                   "+Name+"\n            0 1 2 3 4 5 6 7 8 9\n";
+    cout << "                   "+Name+"\n             0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
 
 	for (int i = 0; i < 10; i++) {
@@ -33,9 +33,11 @@ void Player::drawScacchiera()const{
 		for (int j = 0; j < 10; j++) {
 
 			if (Scacchiera[i][j] == 0 ||Scacchiera[i][j] == 1 ) // 0 for free Coordinate; 2 for Ship sides
-				cout << "_ ";
-			else if (Scacchiera[i][j] == 2) // 1 for SHIP
-				cout << "X ";
+				cout << "|_";
+			if (Scacchiera[i][j] == 2) // 1 for SHIP
+				cout << "|X";
+			if(Scacchiera[i][j] == 3) 
+				cout << "|" << u8"\u25CF";
 		}
 		cout << endl;
 	}
