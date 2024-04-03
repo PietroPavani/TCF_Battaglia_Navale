@@ -13,6 +13,17 @@ void Player::setCella(int x, int y, int value){
     Scacchiera[x][y]=value;
 }
 
+
+// nons erve a un cazzo
+string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
+    char lettera = 'A' + riga; // Converti l'indice della riga in una lettera dell'alfabeto 
+    int numero = colonna;
+    return string(1, lettera) + to_string(numero); // Componi la stringa con la lettera della riga e il numero della colonna
+}
+
+
+
+
 void Player::drawScacchiera()const{
     cout << "                   "+Name+"\n            0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
@@ -43,4 +54,24 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
 	}
 
 	return result;
+}
+
+void Player::shooting(Player &p){
+	
+	const int value_colpito = 2;  
+	int x;
+	int y;
+	string coord;
+	// mettere il codice per nome giocatore
+	cout << "\n Casella: inserire coordinate nel formato tipo A1\n";
+	cin >> coord;
+
+	if(p.Scacchiera[x][y] == 1){
+		p.setCella(x,y, value_colpito);
+		// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
+		cout << "\nColpito!\n" << endl;
+	}
+	if(p.Scacchiera[x][y] == 0){
+		cout << "\nMancato!\n" << endl;
+	}
 }

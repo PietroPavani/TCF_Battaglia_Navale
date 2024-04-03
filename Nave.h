@@ -1,8 +1,5 @@
 #ifndef NAVE_H
 #define NAVE_H
-//ciao
-// ciao
-//piedi?
 #include <iostream>
 using namespace std;
 #include <iomanip>

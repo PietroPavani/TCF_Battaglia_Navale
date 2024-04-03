@@ -9,8 +9,6 @@ using namespace std;
 #include<cmath>
 
 
-
-// aljdaocksodcsòodjjposafdk
 class Player{
     
 public:
@@ -24,6 +22,12 @@ public:
 // la lunghezza e la stringa india la direzione
 
     bool checkCaselle(int,int,int, string)const;
+
+    void shooting(Player &);
+
+    string traduciCoordinate_in_Lettere(int, int); // riga colonna
+
+
  
 private:
 
