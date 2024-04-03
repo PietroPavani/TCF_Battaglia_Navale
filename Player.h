@@ -8,6 +8,9 @@ using namespace std;
 #include<math.h>
 #include<cmath>
 
+
+
+// lisa al gaib
 class Player{
     
 public:
