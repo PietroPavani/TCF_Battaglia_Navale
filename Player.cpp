@@ -14,7 +14,7 @@ void Player::setCella(int x, int y, int value){
 }
 
 
-// nons erve a un cazzo
+// non serve a un cazzo ma la teniamo per ora, nel caso
 string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
     char lettera = 'A' + riga; // Converti l'indice della riga in una lettera dell'alfabeto 
     int numero = colonna;
