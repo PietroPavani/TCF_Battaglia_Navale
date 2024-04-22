@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 #include <iomanip>
-
+#include<vector>
+#include<algorithm>
 #include<math.h>
 #include<cmath>
-
+#include <string>
 #include "Player.h"
 
 Player::Player(string nome):Name(nome){};
@@ -22,6 +23,10 @@ string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
 }
 
 
+
+string Player::getName() const{
+	return Name;
+}
 
 // 0 mare 	1 nave nascosta		2 nave colpita 		3 mare mancato
 void Player::drawScacchiera()const{
@@ -76,4 +81,12 @@ void Player::shooting(Player &p){
 	if(p.Scacchiera[x][y] == 0){
 		cout << "\nMancato!\n" << endl;
 	}
+}
+
+void Player::addNave(Nave* ship){
+	Flotta.push_back(ship);
+}
+
+void Player::deleteNave(Nave* ship){
+	Flotta.push_back(ship);
 }

@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 #include <iomanip>
-
+#include<algorithm>
+#include<vector>
 #include<math.h>
 #include<cmath>
+#include <string>
 
 #include "Nave.h"
 
