@@ -18,7 +18,7 @@ void Game::posizionamento(Player* p1, Player* p2){
 }
 */
 Player Game::chiInizia(Player* p1, Player* p2){
-    cout << p1->getName() << "Lancia il dado premendo Invio ..." << endl;
+    cout << p1->getName() << " lancia il dado premendo Invio ..." << endl;
     cin.ignore(); // Attendiamo che l'utente prema Invio
     srand(static_cast<unsigned int>(time(nullptr))); // Inizializziamo il generatore di numeri casuali
     int result1 = (rand() % 6) + 1; // Generiamo un numero casuale tra 1 e 6
