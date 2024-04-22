@@ -11,7 +11,7 @@ using namespace std;
 #include "Game.h"
 
 int main(){
-    Player Player1("pietro");
+    Player Player1("Pietro");
     Player Player2("Ezio Maina");
     Game Game(&Player1, &Player2);
 

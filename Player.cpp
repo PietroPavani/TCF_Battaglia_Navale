@@ -86,7 +86,3 @@ void Player::shooting(Player &p){
 void Player::addNave(Nave* ship){
 	Flotta.push_back(ship);
 }
-
-void Player::deleteNave(Nave* ship){
-	Flotta.push_back(ship);
-}
