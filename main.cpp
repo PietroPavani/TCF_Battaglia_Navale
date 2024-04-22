@@ -6,7 +6,7 @@ using namespace std;
 #include<cmath>
 #include<vector>
 #include <string>
-//#include "Nave.h"
+#include "Nave.h"
 #include "Player.h"
 #include "Game.h"
 
