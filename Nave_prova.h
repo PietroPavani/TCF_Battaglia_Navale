@@ -33,7 +33,7 @@ public:
     int *StartPosition;
     int *Position[];*/
 
-private: /
+private: 
     string type;
     // navi del giocatore (???) Se non sbaglio la metterei in Player la flotta
     vector<Nave*> navi;
