@@ -33,9 +33,9 @@ public:
     int *StartPosition;
     int *Position[];*/
 
-protected:
+protected: // perchè protected e non private?
     string type;
-    // navi del giocatore (???)
+    // navi del giocatore (???) Se non sbaglio la metterei in Player la flotta
     vector<Nave*> navi;
 
 };
