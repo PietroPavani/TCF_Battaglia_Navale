@@ -51,15 +51,57 @@ void Player::drawScacchiera()const{
 // per adesso controllo solo nella direzione destra
 bool Player::checkCaselle(int x, int y, int size, string direction)const{
 	bool result=true;
-	if(x+size>=10){
-		result=false;
-	}
-	for(int i=0;i<size;i++){
-		if(Scacchiera[x+i][y]!=0){
+	//qui potremmo fare controllo nel caso si siano date coordinate sbagliate ecc con un return e una stampa
+	if(direction=="Est"||direction=="est"){
+		if(x+size>=10){
 			result=false;
+			}
+	else{
+		for(int i=0;i<size;i++){
+			if(Scacchiera[x+i][y]!=0){
+				result=false;
+				}	
+			}
 		}
 	}
+	if(direction=="Ovest"||direction=="ovest"){
+		if(x-size<0){
+			result=false;
+			}
+	else{
+		for(int i=0;i<size;i++){
+			if(Scacchiera[x-i][y]!=0){
+				result=false;
+				}	
+			}
+		}
+	}	
+	if(direction=="Nord"||direction=="nord"){
+		if(y+size>=10){
+			result=false;
+			}
+	else{
+		for(int i=0;i<size;i++){
+			if(Scacchiera[x][y+i]!=0){
+				result=false;
+				}	
+			}
+		}
+	}
+	if(direction=="Sud"||direction=="sud"){
+		if(x-size<0){
+			result=false;
+			}
+	else{
+		for(int i=0;i<size;i++){
+			if(Scacchiera[x][y-i]!=0){
+				result=false;
+				}	
+			}
+		}
+	}	
 
+	
 	return result;
 }
 
