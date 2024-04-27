@@ -65,13 +65,26 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
 
 void Player::shooting(Player &p){
 	
-	const int value_colpito = 2;  
+	const int value_colpito = 2; 
+	const int value_mancato = 3;  
 	int x;
 	int y;
 	string coord;
 	// mettere il codice per nome giocatore
-	cout << "\n Casella: inserire coordinate nel formato tipo A1\n";
+	bool test=false;
+	do{cout << "\n Casella: inserire coordinate nel formato tipo A1\n";
 	cin >> coord;
+	// eventualmente aggiungere check se il formato della stringa è corretto
+	if(p.Scacchiera[x][y] == 2 || p.Scacchiera[x][y] == 3){
+		cout << "\n La Casella è già stata colpita \n";
+		test=true;
+	}
+	if(p.Scacchiera[x][y] == 0 || p.Scacchiera[x][y] == 1){
+		test=false;
+	}
+	
+	}
+	while(test);
 
 	if(p.Scacchiera[x][y] == 1){
 		p.setCella(x,y, value_colpito);
@@ -79,6 +92,7 @@ void Player::shooting(Player &p){
 		cout << "\nColpito!\n" << endl;
 	}
 	if(p.Scacchiera[x][y] == 0){
+		p.setCella(x,y, value_mancato);
 		cout << "\nMancato!\n" << endl;
 	}
 }
