@@ -1,4 +1,4 @@
-#ifndef Nave_H"
+#ifndef Nave_H
 #define Nave_H
 #include <iostream>
 #include <string>
@@ -39,3 +39,6 @@ private:
     vector<Nave*> navi;
 
 };
+
+
+#endif

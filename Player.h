@@ -31,6 +31,10 @@ public:
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
     void addNave(Nave*);
     string getName() const;
+    void posizionamento(); // Da implementare, posizionamento della flotta sulla scacchiera
+    // Volendo si potrebbe aggiornare sulla scacchiera dove si stanno mettendo le navi stampando delle X o 
+    // i simboli relativi delle navi
+
  
 private:
 

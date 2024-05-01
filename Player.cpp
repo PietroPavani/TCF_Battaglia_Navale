@@ -72,7 +72,7 @@ void Player::shooting(Player &p){
 	string coord;
 	// mettere il codice per nome giocatore
 	bool test=false;
-	do{cout << "\n Casella: inserire coordinate nel formato tipo A1\n";
+	do{cout << "\n Inserire coordinate che vuoi colpire nel formato tipo A1\n";
 	cin >> coord;
 	// eventualmente aggiungere check se il formato della stringa è corretto
 	if(p.Scacchiera[x][y] == 2 || p.Scacchiera[x][y] == 3){
@@ -89,14 +89,18 @@ void Player::shooting(Player &p){
 	if(p.Scacchiera[x][y] == 1){
 		p.setCella(x,y, value_colpito);
 		// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
-		cout << "\nColpito!\n" << endl;
-	}
+		cout << coord <<": Colpito!\n" << endl; // ho aggiunto il cout di coord, non so se funzioni
+ 	}
 	if(p.Scacchiera[x][y] == 0){
 		p.setCella(x,y, value_mancato);
-		cout << "\nMancato!\n" << endl;
+		cout << coord << "\nMancato!\n" << endl; // come sopra
 	}
 }
 
 void Player::addNave(Nave* ship){
 	Flotta.push_back(ship);
+}
+
+void Player::posizionamento(){
+	// manca implementazione
 }
