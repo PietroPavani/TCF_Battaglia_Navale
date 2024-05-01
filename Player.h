@@ -9,7 +9,10 @@ using namespace std;
 #include<math.h>
 #include<cmath>
 #include "Nave.h"
-
+/*#include "Lancia.h"
+#include "Sottomarino.h"
+#include "Torpediniera.h"
+#include "Corazzata.h"*/
 
 class Player{
     
@@ -30,6 +33,7 @@ public:
     void shooting(Player &);
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
     void addNave(Nave*);
+    void createFleet();
     string getName() const;
  
 private:

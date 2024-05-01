@@ -7,6 +7,7 @@ using namespace std;
 #include<cmath>
 #include <string>
 #include "Player.h"
+#include "Nave.h"
 
 Player::Player(string nome):Name(nome){};
 
@@ -141,4 +142,9 @@ void Player::shooting(Player &p){
 
 void Player::addNave(Nave* ship){
 	Flotta.push_back(ship);
+}
+//un po di cose da aggiungere
+void Player::createFleet(){
+	Nave pacciani (&Scacchiera[5][5],"ovest",3,'T');
+	pacciani.setPosition();
 }
