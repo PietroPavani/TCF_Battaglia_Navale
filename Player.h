@@ -9,10 +9,10 @@ using namespace std;
 #include<math.h>
 #include<cmath>
 #include "Nave.h"
-/*#include "Lancia.h"
+#include "Lancia.h"
 #include "Sottomarino.h"
 #include "Torpediniera.h"
-#include "Corazzata.h"*/
+#include "Corazzata.h"
 
 class Player{
     

@@ -6,6 +6,7 @@
 #include<math.h>
 #include<cmath>
 #include <vector>
+#include "Nave.h"
 using std::string;
 using namespace std;
 

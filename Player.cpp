@@ -145,6 +145,6 @@ void Player::addNave(Nave* ship){
 }
 //un po di cose da aggiungere
 void Player::createFleet(){
-	Nave pacciani (&Scacchiera[5][5],"ovest",3,'T');
+	Torpediniera pacciani (&Scacchiera[5][5],"ovest");
 	pacciani.setPosition();
 }

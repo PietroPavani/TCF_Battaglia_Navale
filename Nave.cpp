@@ -32,7 +32,7 @@ void Nave::setPosition(){
     if(Direzione=="Ovest"||Direzione=="ovest"){
         for(int i =0;i<Size;i++){
             Position.push_back(StartPosition-i);
-            *Position[i]=1;
+            *Position[i]=3;
         }
     }
     if(Direzione=="est"||Direzione=="Est"){
