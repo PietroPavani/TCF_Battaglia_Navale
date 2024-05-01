@@ -14,20 +14,7 @@ class Lancia : public Nave
 {
 
 public:
-    Lancia(int &P, string D, int L, const string& naveType);
-    virtual void calcoloDanni();
-    virtual bool getAffondato() const;
-    virtual void setPosition();
-    virtual char getSimbolo() const;
-    virtual int getSize() const;
-
-private:
-    string Direzione;
-    int Size;
-    bool Affondato;
-    int *StartPosition;
-    int *Position[];
-
+    Lancia(int *P, string D);
 
 };
 

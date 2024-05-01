@@ -30,11 +30,25 @@ bool Nave::getAffondato()const{
 
 void Nave::setPosition(){
     if(Direzione=="Ovest"||Direzione=="ovest"){
-        
+        for(int i =0;i<Size;i++){
+            Position.push_back(StartPosition-i);
+        }
     }
-
-
-
+    if(Direzione=="est"||Direzione=="Est"){
+        for(int i =0;i<Size;i++){
+            Position.push_back(StartPosition+i);
+        }
+    }
+    if(Direzione=="Nord"||Direzione=="nord"){
+        for(int i =0;i<Size;i++){
+            Position.push_back(StartPosition-10*i);
+        }
+    }
+    if(Direzione=="Sud"||Direzione=="sud"){
+        for(int i =0;i<Size;i++){
+            Position.push_back(StartPosition+i*10);
+        }
+    }
 }
 
 

@@ -13,21 +13,7 @@ class Torpediniera : public Nave
 {
 
 public:
-    Torpediniera();
-    virtual void calcoloDanni();
-    virtual bool getAffondato() const;
-    virtual void setPosition();
-    virtual char getSimbolo() const;
-    virtual int getSize() const;
-
-private:
-    string Direzione;
-    int Size;
-    bool Affondato;
-    int *StartPosition;
-    int *Position[];
-
-
+      Torpediniera(int *P, string D);
 };
 
 

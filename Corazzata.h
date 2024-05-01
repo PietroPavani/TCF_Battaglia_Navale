@@ -13,20 +13,7 @@ class Corazzata : public Nave
 {
 
 public:
-    Corazzata();
-    virtual void calcoloDanni();
-    virtual bool getAffondato() const;
-    virtual void setPosition();
-    virtual char getSimbolo() const;
-    virtual int getSize() const;
-
-private:
-    string Direzione;
-    int Size;
-    bool Affondato;
-    int *StartPosition;
-    int *Position[];
-
+   Corazzata(int *P, string D);
 
 };
 
