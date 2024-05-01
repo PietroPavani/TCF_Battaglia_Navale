@@ -6,7 +6,7 @@ using namespace std;
 #include<math.h>
 #include<cmath>
 #include <string>
-
+//commento perché non capisco come funzionano le branch su github
 #include "Nave.h"
 
 //bisogna aggiungere la parte riguardo alla posizione
