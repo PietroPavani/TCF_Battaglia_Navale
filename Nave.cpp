@@ -10,7 +10,7 @@ using namespace std;
 #include "Nave.h"
 
 //bisogna aggiungere la parte riguardo alla posizione
-Nave::Nave(int &P, string D, int L, const string& naveType):Direzione(D),Size(L),type(naveType),Affondato(false),StartPosition(&P)
+Nave::Nave(int *P, string D, int L, char type):Direzione(D),Size(L),naveType(type),Affondato(false),StartPosition(P)
 {}
 void Nave::calcoloDanni(){
     int x=Size;
@@ -28,16 +28,27 @@ bool Nave::getAffondato()const{
     return Affondato;
 }
 
-//da qui parte nuova
+void Nave::setPosition(){
+    if(Direzione=="Ovest"||Direzione=="ovest"){
+        
+    }
+
+
+
+}
 
 
 int Nave::getSize() const {
     return Size;
 }
 char Nave::getSimbolo() const {
-    return ' '; // di default
+    return 'N'; // di default n****
 }
 
+
+
+
+/*
 Lancia::Lancia(int &P, string D) : Nave(P, D, 1, "Lancia") {}
 
 char Lancia::getSimbolo() const {
@@ -61,3 +72,4 @@ Corazzata::Corazzata(int &P, string D) : Nave(P, D, 4, "Corazzata") {}
 char Corazzata::getSimbolo() const {
     return 'C';
 }
+*/
