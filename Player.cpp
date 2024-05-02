@@ -43,7 +43,7 @@ void Player::drawScacchiera()const{
 			if (Scacchiera[i][j] == 2) // 1 for SHIP
 				cout << "|X";
 			if(Scacchiera[i][j] == 3) 
-				cout << "|" << u8"\u25CF";
+				cout << "|" << "\u25CF";
 		}
 		cout << endl;
 	}
