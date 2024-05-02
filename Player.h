@@ -35,6 +35,8 @@ public:
     void addNave(Nave*);
     void createFleet();
     string getName() const;
+    void updateFleet();
+    void prova();
  
 private:
 

@@ -9,18 +9,19 @@ using namespace std;
 //commento perché non capisco come funzionano le branch su github
 #include "Nave.h"
 
-//bisogna aggiungere la parte riguardo alla posizione
+
 Nave::Nave(int *P, string D, int L, char type):Direzione(D),Size(L),naveType(type),Affondato(false),StartPosition(P)
-{}
+{this->setPosition();}
 void Nave::calcoloDanni(){
     int x=Size;
-    for(int i=0;i<Size;i++){
+    for(int i=0;i<this->getSize();i++){
         if(*Position[i]==2){
             x--;
         }
     }
     if(x==0){
         Affondato = true;
+        cout<<"E' affondata la nave "<< this->getSimbolo()<<endl;
     }
 }
 
@@ -32,7 +33,7 @@ void Nave::setPosition(){
     if(Direzione=="Ovest"||Direzione=="ovest"){
         for(int i =0;i<Size;i++){
             Position.push_back(StartPosition-i);
-            *Position[i]=3;
+            *Position[i]=1;
         }
     }
     if(Direzione=="est"||Direzione=="Est"){
@@ -59,6 +60,7 @@ void Nave::setPosition(){
 int Nave::getSize() const {
     return Size;
 }
+
 char Nave::getSimbolo() const {
     return naveType; // di default n****
 }

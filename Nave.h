@@ -30,7 +30,7 @@ public:
 
 private:
     string Direzione;
-    int Size;
+    int Size ;
     bool Affondato;
     int *StartPosition;
     vector<int*> Position;

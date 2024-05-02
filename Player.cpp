@@ -2,6 +2,7 @@
 using namespace std;
 #include <iomanip>
 #include<vector>
+#include<iterator>
 #include<algorithm>
 #include<math.h>
 #include<cmath>
@@ -43,7 +44,7 @@ void Player::drawScacchiera()const{
 			if (Scacchiera[i][j] == 2) // 1 for SHIP
 				cout << "|X";
 			if(Scacchiera[i][j] == 3) 
-				cout << "|" << "\u25CF";
+				cout << "|" << "O";
 		}
 		cout << endl;
 	}
@@ -145,6 +146,18 @@ void Player::addNave(Nave* ship){
 }
 //un po di cose da aggiungere
 void Player::createFleet(){
-	Torpediniera pacciani (&Scacchiera[5][5],"ovest");
-	pacciani.setPosition();
+	Flotta.push_back(new Torpediniera(&Scacchiera[5][5],"ovest"));
+}
+
+void Player::updateFleet(){
+	vector<Nave*>::iterator iter;
+
+	for(iter=Flotta.begin(); iter!=Flotta.end(); iter++) {
+		 (*(*iter)).calcoloDanni();
+ }
+}
+
+void Player::prova(){
+
+
 }
