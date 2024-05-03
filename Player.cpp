@@ -23,7 +23,19 @@ string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
     int numero = colonna;
     return string(1, lettera) + to_string(numero); // Componi la stringa con la lettera della riga e il numero della colonna
 }
-
+void Player::traduciLettere_in_Coordinate(int* x,int* y, string coord){
+	char CX = coord[0];
+	char CY = coord[1];
+	*y= (int)CY-48;
+	if((int)CX<75)
+	{
+		*x=((int)CX)-65;
+		}
+	else if ((int)CX>96)
+	{
+		*x=((int)CX)-97;
+	}
+}
 
 
 string Player::getName() const{
@@ -50,7 +62,7 @@ void Player::drawScacchiera()const{
 	}
 
 }
-// per adesso controllo solo nella direzione destra
+
 bool Player::checkCaselle(int x, int y, int size, string direction)const{
 	bool result=true;
 	//qui potremmo fare controllo nel caso si siano date coordinate sbagliate ecc con un return e una stampa
@@ -107,6 +119,7 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
 	return result;
 }
 
+
 void Player::shooting(Player &p){
 	
 	const int value_colpito = 2; 
@@ -118,6 +131,7 @@ void Player::shooting(Player &p){
 	bool test=false;
 	do{cout << "\n Casella: inserire coordinate nel formato tipo A1\n";
 	cin >> coord;
+	this->traduciLettere_in_Coordinate(&x,&y,coord);
 	// eventualmente aggiungere check se il formato della stringa è corretto
 	if(p.Scacchiera[x][y] == 2 || p.Scacchiera[x][y] == 3){
 		cout << "\n La Casella è già stata colpita \n";
@@ -146,6 +160,13 @@ void Player::addNave(Nave* ship){
 }
 //un po di cose da aggiungere
 void Player::createFleet(){
+
+
+
+
+
+
+
 	Flotta.push_back(new Torpediniera(&Scacchiera[5][5],"ovest"));
 }
 
@@ -156,6 +177,24 @@ void Player::updateFleet(){
 		 (*(*iter)).calcoloDanni();
  }
 }
+
+bool Player::checkDefeat(){
+vector<Nave*>::iterator iter;
+	int x = Flotta.size();
+	for(iter=Flotta.begin(); iter!=Flotta.end(); iter++) {
+
+		if( (*(*iter)).getAffondato()){
+				x--;
+		}
+	}
+if(x==0){
+	return true;
+}
+else{
+	return false;
+}
+}
+
 
 void Player::prova(){
 
