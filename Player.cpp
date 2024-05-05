@@ -158,16 +158,75 @@ void Player::shooting(Player &p){
 void Player::addNave(Nave* ship){
 	Flotta.push_back(ship);
 }
-//un po di cose da aggiungere
+//un 
 void Player::createFleet(){
+	int x;
+	int y;
+	string coord;
+	string dir;
+	bool test;
+	for(int l = 1; l<5;l++)
+	{
+		do
+		{
+			cout<<"inserire le coordinate per la Lancia numero "<<l<< " di dimensione 1";
+			cin>>coord;
+			this->traduciLettere_in_Coordinate(&x,&y,coord);
+			cout<<"inserire la direzione";
+			cin>>dir;
+			test=this->checkCaselle(x,y,1,dir);	
+		}
+		while(!test);
+		Flotta.push_back(new Lancia(&Scacchiera[x][y],dir));
+	}
+	for(int t = 1; t<4;t++)
+	{
+		do
+		{
+			cout<<"inserire le coordinate per la Torpediniera numero "<<t<< " di dimensione 2";
+			cin>>coord;
+			this->traduciLettere_in_Coordinate(&x,&y,coord);
+			cout<<"inserire la direzione";
+			cin>>dir;
+			test=this->checkCaselle(x,y,2,dir);	
+		}
+		while(!test);
+		Flotta.push_back(new Torpediniera(&Scacchiera[x][y],dir));
+	}
+	for(int s = 1; s<3;s++)
+	{
+		do
+		{
+			cout<<"inserire le coordinate per la Lancia numero "<<s<< " di dimensione 3";
+			cin>>coord;
+			this->traduciLettere_in_Coordinate(&x,&y,coord);
+			cout<<"inserire la direzione";
+			cin>>dir;
+			test=this->checkCaselle(x,y,3,dir);	
+		}
+		while(!test);
+		Flotta.push_back(new Sottomarino(&Scacchiera[x][y],dir));
+	}
+	for(int c = 1; c<2;c++)
+	{
+		do
+		{
+			cout<<"inserire le coordinate per la Corazzata numero "<<c<< " di dimensione 4";
+			cin>>coord;
+			this->traduciLettere_in_Coordinate(&x,&y,coord);
+			cout<<"inserire la direzione";
+			cin>>dir;
+			test=this->checkCaselle(x,y,4,dir);	
+		}
+		while(!test);
+		Flotta.push_back(new Corazzata(&Scacchiera[x][y],dir));
+	}
 
 
 
 
 
-
-
-	Flotta.push_back(new Torpediniera(&Scacchiera[5][5],"ovest"));
+	//Flotta.push_back(new Torpediniera(&Scacchiera[5][5],"ovest"));
 }
 
 void Player::updateFleet(){
