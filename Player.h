@@ -33,11 +33,9 @@ public:
     void shooting(Player &);
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
     void traduciLettere_in_Coordinate(int*,int*,string);
-    void addNave(Nave*);
     void createFleet();
     string getName() const;
     void updateFleet();
-    void prova();
     bool checkDefeat();
  
 private:
