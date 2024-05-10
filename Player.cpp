@@ -56,7 +56,7 @@ void Player::drawScacchiera()const{
 			if (Scacchiera[i][j] == 2) // 1 for SHIP
 				cout << "|X";
 			if(Scacchiera[i][j] == 3) 
-				cout << "|" << "O";
+				cout << "|" << u8"\u25CF";
 		}
 		cout << endl;
 	}
@@ -155,10 +155,7 @@ void Player::shooting(Player &p){
 	}
 }
 
-void Player::addNave(Nave* ship){
-	Flotta.push_back(ship);
-}
-//un 
+
 void Player::createFleet(){
 	int x;
 	int y;
@@ -254,8 +251,3 @@ else{
 }
 }
 
-
-void Player::prova(){
-
-
-}
