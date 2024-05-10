@@ -13,11 +13,8 @@ class Nave{
 
 public:
 
-/* Per ora non ho messo il nome della nave perchè avevamo detto che stampiamo direttamente la board
-ogni volta e pertanto il nome serviva per l'opzione di stampa, a questo punto inutile, di calcoloDanni */
-
 //costruttore della nave posizione iniziale, direzione, lunghezza (size), tipo di nave
-    Nave(int &P, string D, int L, const string& naveType);
+    Nave(int *P, string D, int L, char naveType);
 //penso serva
     virtual ~Nave() {}
 // check delle componenti della nave aggiorna il valore della variabile affondato
@@ -26,26 +23,22 @@ ogni volta e pertanto il nome serviva per l'opzione di stampa, a questo punto in
     bool getAffondato() const;
 // inizializza Position dando i puntotori alla scacchiera
     void setPosition();
-//simbolo delle navi (lettera iniziale)
-    virtual char getSimbolo() const;
+//simbolo delle navi (lettera iniziale) 
+    char getSimbolo() const;
 //return size navi
     int getSize() const;
 
 private:
     string Direzione;
-    int Size;
+    int Size ;
     bool Affondato;
     int *StartPosition;
-    int *Position[];
-
-protected:
-    string type;
-    // navi del giocatore (???)
-    vector<Nave*> navi;
+    vector<int*> Position;
+    char naveType;
 
 };
 
-
+/*
 //lancia dim 1
 class Lancia : public Nave {
 public:
@@ -70,5 +63,8 @@ public:
     Corazzata(int &P, string D);
     char getSimbolo() const override;
 };
+
+*/
+
 
 #endif
