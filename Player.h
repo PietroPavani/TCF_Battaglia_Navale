@@ -9,6 +9,11 @@ using namespace std;
 #include<math.h>
 #include<cmath>
 #include "Nave.h"
+#include "Lancia.h"
+#include "Sottomarino.h"
+#include "Torpediniera.h"
+#include "Corazzata.h"
+
 
 
 class Player{
@@ -29,11 +34,12 @@ public:
     bool checkCaselle(int,int,int, string)const;
     void shooting(Player &);
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
-    void addNave(Nave*);
+    void traduciLettere_in_Coordinate(int*, int*, string);
+    void createFleet(); // crea flotta e posiziona
+    void updateFleet();
+    bool checkDefeat();
     string getName() const;
-    void posizionamento(); // Da implementare, posizionamento della flotta sulla scacchiera
-    // Volendo si potrebbe aggiornare sulla scacchiera dove si stanno mettendo le navi stampando delle X o 
-    // i simboli relativi delle navi
+    
 
  
 private:
