@@ -6,6 +6,7 @@
 #include<math.h>
 #include<cmath>
 #include <vector>
+#include "Nave.h"
 using std::string;
 using namespace std;
 
@@ -13,22 +14,14 @@ class Corazzata : public Nave
 {
 
 public:
-    Corazzata();
-    virtual void calcoloDanni();
-    virtual bool getAffondato() const;
-    virtual void setPosition();
-    virtual char getSimbolo() const;
-    virtual int getSize() const;
-
-private:
-    string Direzione;
-    int Size;
-    bool Affondato;
-    int *StartPosition;
-    int *Position[];
-
+   Corazzata(int *P, string D);
 
 };
+
+
+#endif // Corazzata_h
+
+
 
 
 #endif // Corazzata_h
