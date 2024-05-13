@@ -6,6 +6,7 @@
 #include<math.h>
 #include<cmath>
 #include <vector>
+#include "Nave.h"
 using std::string;
 using namespace std;
 
@@ -13,23 +14,8 @@ class Sottomarino : public Nave
 {
 
 public:
-    Sottomarino();
-    virtual void calcoloDanni();
-    virtual bool getAffondato() const;
-    virtual void setPosition();
-    virtual char getSimbolo() const;
-    virtual int getSize() const;
-
-private:
-    string Direzione;
-    int Size;
-    bool Affondato;
-    int *StartPosition;
-    int *Position[];
-
-
+ Sottomarino(int *P, string D);
 };
 
 
 #endif // Sottomarino_h
-
