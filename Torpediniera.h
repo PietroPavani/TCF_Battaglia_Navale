@@ -19,8 +19,3 @@ public:
 
 
 #endif // Torpediniera_h
-
-};
-
-
-#endif // Torpediniera_h
