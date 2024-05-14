@@ -29,12 +29,14 @@ public:
 // i primi due valori sono la posizione nella scacchiera il terzo il valore da modificare
     void setCella(int, int, int );
     void drawScacchiera()const;
+    void drawScacchiera_posizionamento()const;
 // verifica se le caselle sono libere per ospitare una nave primi due int casella iniziale il terzo 
 // la lunghezza e la stringa india la direzione
     bool checkCaselle(int,int,int, string)const;
     void shooting(Player &);
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
     void traduciLettere_in_Coordinate(int*, int*, string);
+    bool validateCoordinateFormat(const string& coord) const;
     void createFleet(); // crea flotta e posiziona
     void updateFleet();
     bool checkDefeat();

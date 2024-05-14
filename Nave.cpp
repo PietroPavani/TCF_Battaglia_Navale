@@ -12,6 +12,8 @@ using namespace std;
 
 Nave::Nave(int *P, string D, int L, char type):Direzione(D),Size(L),naveType(type),Affondato(false),StartPosition(P)
 {this->setPosition();}
+
+
 void Nave::calcoloDanni(){
     int x=Size;
     for(int i=0;i<this->getSize();i++){
@@ -21,7 +23,7 @@ void Nave::calcoloDanni(){
     }
     if(x==0){
         Affondato = true;
-        cout<<"E' affondata la nave "<< this->getSimbolo()<<endl;
+        cout<<"Arg... La nave "<< this->getSimbolo()<< " è colpita e affondata!"<< endl;
     }
 }
 
@@ -68,28 +70,3 @@ char Nave::getSimbolo() const {
 
 
 
-/*
-Lancia::Lancia(int &P, string D) : Nave(P, D, 1, "Lancia") {}
-
-char Lancia::getSimbolo() const {
-    return 'L';
-}
-
-Torpediniera::Torpediniera(int &P, string D) : Nave(P, D, 2, "Torpediniera") {}
-
-char Torpediniera::getSimbolo() const {
-    return 'T';
-}
-
-Sottomarino::Sottomarino(int &P, string D) : Nave(P, D, 3, "Sottomarino") {}
-
-char Sottomarino::getSimbolo() const {
-    return 'S';
-}
-
-Corazzata::Corazzata(int &P, string D) : Nave(P, D, 4, "Corazzata") {}
-
-char Corazzata::getSimbolo() const {
-    return 'C';
-}
-*/

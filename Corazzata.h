@@ -22,8 +22,3 @@ public:
 #endif // Corazzata_h
 
 
-
-
-#endif // Corazzata_h
-
-
