@@ -160,9 +160,9 @@ void Player::shooting(Player &p){
 	
 	if (!validateCoordinateFormat(coord)) {
             cout << "\nFormato delle coordinate non valido. Reinserire le coordinate." << endl;
-            continue; // Salta il resto del ciclo e chiedi all'utente di reinserire le coordinate
+            test=true;
         }
-
+	else{
 	this->traduciLettere_in_Coordinate(&x,&y,coord);
 	if(p.Scacchiera[x][y] == 2 || p.Scacchiera[x][y] == 3){
 		cout << "\nLa Casella è già stata colpita \n";
@@ -171,7 +171,7 @@ void Player::shooting(Player &p){
 	if(p.Scacchiera[x][y] == 0 || p.Scacchiera[x][y] == 1){
 		test=false;
 	}
-	
+	}	
 	}
 	while(test);
 
