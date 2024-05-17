@@ -29,11 +29,18 @@ public:
     }
     virtual void shooting(Player &);
     virtual void createFleet(); // crea flotta e posiziona
+
     
 
  
 private:
-
+    //l'idea è che a mano a mano che scopre delle informazioni sulla nave che colpisce
+    // le tiene in memoria e le aggiorna con i lanci seguenti finchè non affonda la nave e torna a sparare a casualmente
+    string DirShip;
+    int SizeShip;
+    int YLastShot;
+    int XLastShot;
+    int Status;
     int Scacchiera[10][10]={0};
     string Name;
     vector<Nave*> Flotta;
