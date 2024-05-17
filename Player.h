@@ -20,13 +20,14 @@ class Player{
     
 public:
 
-    Player(string);
+    Player(string = "player");
     ~Player() {
         for (Nave* ship : Flotta) {
             delete ship;
         }
     }
 // i primi due valori sono la posizione nella scacchiera il terzo il valore da modificare
+    int getCella(int, int)const;
     void setCella(int, int, int );
     void drawScacchiera()const;
     void drawScacchiera_posizionamento()const;
@@ -37,7 +38,7 @@ public:
     string traduciCoordinate_in_Lettere(int, int); // riga colonna
     void traduciLettere_in_Coordinate(int*, int*, string);
     bool validateCoordinateFormat(const string& coord) const;
-    void createFleet(); // crea flotta e posiziona
+    virtual void createFleet(); // crea flotta e posiziona
     void updateFleet();
     bool checkDefeat();
     string getName() const;

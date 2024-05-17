@@ -16,6 +16,10 @@ void Player::setCella(int x, int y, int value){
     Scacchiera[x][y]=value;
 }
 
+int Player::getCella(int x,int y) const{
+	return Scacchiera[x][y];
+}
+
 
 // non serve a un cazzo ma la teniamo per ora, nel caso
 string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
