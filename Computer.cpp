@@ -78,21 +78,21 @@ void Computer::shooting(Player &p){
 
 		if(XLastShot<9){
 			if(p.getCella(XLastShot+1,YLastShot) == 0 ||p.getCella(XLastShot+1,YLastShot)== 1){
-			PosDir.push_back("est");}}
+			PosDir.push_back("sud");}}
 		if(XLastShot>0){
 			if(p.getCella(XLastShot-1,YLastShot) == 0 ||p.getCella(XLastShot-1,YLastShot)== 1){
-			PosDir.push_back("ovest");}}
+			PosDir.push_back("nord");}}
 		if(YLastShot<9){
 			if(p.getCella(XLastShot,YLastShot+1) == 0 ||p.getCella(XLastShot,YLastShot+1)== 1){
-			PosDir.push_back("sud");}}
+			PosDir.push_back("est");}}
 		if(YLastShot>0){
 			if(p.getCella(XLastShot,YLastShot-1) == 0 ||p.getCella(XLastShot,YLastShot-1)== 1){
-			PosDir.push_back("nord");}}
+			PosDir.push_back("ovest");}}
 		//bisogna aggiungere controllo che effettivamente ci sia una direzione possibile
 		int CasualIndex= rand()%PosDir.size();
 		DirShip = PosDir[CasualIndex];
 
-		if(DirShip=="ovest"){
+		if(DirShip=="nord"){
 			if(p.getCella(XLastShot-1,YLastShot)== 1){
 				p.setCella(XLastShot-1,YLastShot, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -107,7 +107,7 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 			}
 		}
-		if(DirShip=="est"){
+		if(DirShip=="sud"){
 			if(p.getCella(XLastShot+1,YLastShot)== 1){
 				p.setCella(XLastShot+1,YLastShot, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -121,7 +121,7 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 			}
 		}
-		if(DirShip=="nord"){
+		if(DirShip=="ovest"){
 			if(p.getCella(XLastShot,YLastShot-1)== 1){
 				p.setCella(XLastShot,YLastShot-1, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -135,7 +135,7 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 			}
 		}
-		if(DirShip=="sud"){
+		if(DirShip=="est"){
 			if(p.getCella(XLastShot,YLastShot+1)== 1){
 				p.setCella(XLastShot,YLastShot+1, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -151,22 +151,22 @@ void Computer::shooting(Player &p){
 		}
 
 		if(Status==2){
-			if(XLastShot=0 && DirShip=="ovest"){
+			if(YLastShot=0 && DirShip=="ovest"){
 					XLastShot++;
 					SizeShip=1;
 					DirShip="est";
 				}
-			if(XLastShot=9 && DirShip=="est"){
+			if(YLastShot=9 && DirShip=="est"){
 					XLastShot--;
 					SizeShip=1;
 					DirShip="ovest";
 				}
-			if(YLastShot=0 && DirShip=="nord"){
+			if(XLastShot=0 && DirShip=="nord"){
 					YLastShot++;
 					SizeShip=1;
 					DirShip="sud";
 				}
-			if(YLastShot=9 && DirShip=="sud"){
+			if(XLastShot=9 && DirShip=="sud"){
 					YLastShot--;
 					SizeShip=1;
 					DirShip="nord";
@@ -188,7 +188,7 @@ void Computer::shooting(Player &p){
 		const int value_colpito = 2; 
 		const int value_mancato = 3; 
 
-		if(DirShip=="ovest"){
+		if(DirShip=="nord"){
 			if(p.getCella(XLastShot-1,YLastShot)== 1){
 				p.setCella(XLastShot-1,YLastShot, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -202,10 +202,10 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 				XLastShot+=(SizeShip-1);
 				SizeShip=1;
-				DirShip="est";
+				DirShip="sud";
 			}
 		}
-		if(DirShip=="est"){
+		if(DirShip=="sud"){
 			if(p.getCella(XLastShot+1,YLastShot)== 1){
 				p.setCella(XLastShot+1,YLastShot, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -219,10 +219,10 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 				XLastShot-=(SizeShip-1);
 				SizeShip=1;
-				DirShip="ovest";
+				DirShip="nord";
 			}
 		}
-		if(DirShip=="sud"){
+		if(DirShip=="est"){
 			if(p.getCella(XLastShot,YLastShot+1)== 1){
 				p.setCella(XLastShot,YLastShot+1, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -236,10 +236,10 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 				YLastShot-=(SizeShip-1);
 				SizeShip=1;
-				DirShip="nord";
+				DirShip="ovest";
 			}
 		}
-		if(DirShip=="nord"){
+		if(DirShip=="ovest"){
 			if(p.getCella(XLastShot,YLastShot-1)== 1){
 				p.setCella(XLastShot,YLastShot-1, value_colpito);
 				// Volendo aggiungere coordinata colpita con eventuale traduzione in lettere
@@ -253,26 +253,26 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 				YLastShot+=(SizeShip-1);
 				SizeShip=1;
-				DirShip="sud";
+				DirShip="est";
 			}
 		}
 
-		if(XLastShot=0 && DirShip=="ovest"){
+		if(YLastShot=0 && DirShip=="ovest"){
 					XLastShot+=(SizeShip-1);
 					SizeShip=1;
 					DirShip="est";
 				}
-		if(XLastShot=9 && DirShip=="est"){
+		if(YLastShot=9 && DirShip=="est"){
 				XLastShot-=(SizeShip-1);
 				SizeShip=1;
 				DirShip="ovest";
 			}
-		if(YLastShot=0 && DirShip=="nord"){
+		if(XLastShot=0 && DirShip=="nord"){
 				YLastShot+=(SizeShip-1);
 				SizeShip=1;
 				DirShip="sud";
 			}
-		if(YLastShot=9 && DirShip=="sud"){
+		if(XLastShot=9 && DirShip=="sud"){
 				YLastShot-=(SizeShip-1);
 				SizeShip=1;
 				DirShip="nord";

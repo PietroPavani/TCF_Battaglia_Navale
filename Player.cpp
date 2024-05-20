@@ -107,25 +107,28 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
 
 
     for (int i = 0; i < size; ++i) {
-        if (direction == "Est" && (y + i >= 10 || Scacchiera[x][y + i] != 0)) {
+        if ((direction == "Est"||direction == "est" ) && (y + i >= 10 || Scacchiera[x][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Ovest" && (y - i < 0 || Scacchiera[x][y - i] != 0)) {
+        if ((direction == "Ovest"||direction == "ovest")  && (y - i < 0 || Scacchiera[x][y - i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Nord" && (x - i < 0 || Scacchiera[x - i][y] != 0)) {
+        if ((direction == "Nord" || direction == "nord" ) && (x - i < 0 || Scacchiera[x - i][y] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Sud" && (x + i >= 10 || Scacchiera[x + i][y] != 0)) {
+        if ((direction == "Sud" || direction == "sud" ) && (x + i >= 10 || Scacchiera[x + i][y] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
 	}
 
 
+
+
+/*  commentata perchè non dovrebbe più servire
 	for (int i = 0; i < size; ++i) {
         if (direction == "est" && (y + i > 10 || Scacchiera[x][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
@@ -144,7 +147,7 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
     }
-
+*/
 	
 	return result;
 }
