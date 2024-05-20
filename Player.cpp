@@ -10,7 +10,7 @@ using namespace std;
 #include "Player.h"
 #include "Nave.h"
 
-Player::Player(string nome):Name(nome){};
+Player::Player(string nome):Name(nome),NumShip(0){};
 
 void Player::setCella(int x, int y, int value){
     Scacchiera[x][y]=value;
@@ -18,6 +18,10 @@ void Player::setCella(int x, int y, int value){
 
 int Player::getCella(int x,int y) const{
 	return Scacchiera[x][y];
+}
+
+int Player::getNumShip() const{
+	return NumShip;
 }
 
 
@@ -222,6 +226,7 @@ void Player::createFleet(){
 		}
 		while(!test);
 		Flotta.push_back(new Lancia(&Scacchiera[x][y],dir));
+		NumShip++;
 		drawScacchiera_posizionamento();
 	}
 	for(int t = 1; t<3;t++)
@@ -237,6 +242,7 @@ void Player::createFleet(){
 		}
 		while(!test);
 		Flotta.push_back(new Torpediniera(&Scacchiera[x][y],dir));
+		NumShip++;
 		drawScacchiera_posizionamento();
 	}
 	for(int s = 1; s<2;s++)
@@ -252,6 +258,7 @@ void Player::createFleet(){
 		}
 		while(!test);
 		Flotta.push_back(new Sottomarino(&Scacchiera[x][y],dir));
+		NumShip++;
 		drawScacchiera_posizionamento();
 	}
 	for(int c = 1; c<2;c++)
@@ -267,6 +274,7 @@ void Player::createFleet(){
 		}
 		while(!test);
 		Flotta.push_back(new Corazzata(&Scacchiera[x][y],dir));
+		NumShip++;
 		drawScacchiera_posizionamento();
 	}
 
@@ -279,9 +287,10 @@ void Player::createFleet(){
 
 void Player::updateFleet(){
 	vector<Nave*>::iterator iter;
-
+	NumShip=0;
 	for(iter=Flotta.begin(); iter!=Flotta.end(); iter++) {
 		 (*(*iter)).calcoloDanni();
+		 if(!(*(*iter)).getAffondato()){NumShip++;}
  }
 }
 

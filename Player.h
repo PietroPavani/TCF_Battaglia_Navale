@@ -28,6 +28,7 @@ public:
     }
 // i primi due valori sono la posizione nella scacchiera il terzo il valore da modificare
     int getCella(int, int)const;
+    int getNumShip()const;
     void setCella(int, int, int );
     void drawScacchiera()const;
     void drawScacchiera_posizionamento()const;
@@ -50,6 +51,7 @@ private:
     int Scacchiera[10][10]={0};
     string Name;
     vector<Nave*> Flotta;
+    int NumShip;
 
 
 };
