@@ -22,17 +22,20 @@ Computer::Computer(string nome):Name(nome),Status(0),SizeShip(0){};
 //controllarlo magari facendoci una partita funziona solo se le navi non sono attaccate
 //modificare i vari cout
 void Computer::shooting(Player &p){
+	const int value_colpito = 2; 
+	const int value_mancato = 3;  
+	int NumShipEnemyBefore;
+	int NumShipEnemyAfter;
+	int x;
+	int y;
+	bool test;
 	switch (Status)
 	{
-	
+
 	case 0:
 		srand(time(NULL));
-		int x;
-		int y;
-		const int value_colpito = 2; 
-		const int value_mancato = 3;  
 
-		bool test=false;
+		test=false;
 		do{
     		x = rand()%10;
     		y = rand()%10;
@@ -59,9 +62,9 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 			}
 
-		int NumShipEnemyBefore=p.getNumShip();
+		NumShipEnemyBefore=p.getNumShip();
 		p.updateFleet();
-		int NumShipEnemyAfter=p.getNumShip();
+		NumShipEnemyAfter=p.getNumShip();
 		if(NumShipEnemyAfter<NumShipEnemyBefore){
 			Status=0;
 			SizeShip=0;
@@ -71,9 +74,7 @@ void Computer::shooting(Player &p){
 		break;
 	case 1:
 	{
-		srand(time(NULL));
-		const int value_colpito = 2; 
-		const int value_mancato = 3;  
+		srand(time(NULL)); 
 		vector<string> PosDir;
 
 		if(XLastShot<9){
@@ -174,9 +175,9 @@ void Computer::shooting(Player &p){
 		}
 
 
-		int NumShipEnemyBefore=p.getNumShip();
+		NumShipEnemyBefore=p.getNumShip();
 		p.updateFleet();
-		int NumShipEnemyAfter=p.getNumShip();
+		NumShipEnemyAfter=p.getNumShip();
 		if(NumShipEnemyAfter<NumShipEnemyBefore){
 			Status=0;
 			SizeShip=0;
@@ -185,8 +186,6 @@ void Computer::shooting(Player &p){
 	}
 		break;
 	case 2:
-		const int value_colpito = 2; 
-		const int value_mancato = 3; 
 
 		if(DirShip=="nord"){
 			if(p.getCella(XLastShot-1,YLastShot)== 1){
@@ -278,9 +277,9 @@ void Computer::shooting(Player &p){
 				DirShip="nord";
 			}
 
-		int NumShipEnemyBefore=p.getNumShip();
+		NumShipEnemyBefore=p.getNumShip();
 		p.updateFleet();
-		int NumShipEnemyAfter=p.getNumShip();
+		NumShipEnemyAfter=p.getNumShip();
 		if(NumShipEnemyAfter<NumShipEnemyBefore){
 			Status=0;
 			SizeShip=0;
@@ -290,12 +289,8 @@ void Computer::shooting(Player &p){
 
 	default:
 		srand(time(NULL));
-		int x;
-		int y;
-		const int value_colpito = 2; 
-		const int value_mancato = 3;  
 
-		bool test=false;
+		test=false;
 		do{
     		x = rand()%10;
     		y = rand()%10;
@@ -322,9 +317,9 @@ void Computer::shooting(Player &p){
 				cout << "\nMancato!\n" << endl;
 			}
 
-		int NumShipEnemyBefore=p.getNumShip();
+		NumShipEnemyBefore=p.getNumShip();
 		p.updateFleet();
-		int NumShipEnemyAfter=p.getNumShip();
+		NumShipEnemyAfter=p.getNumShip();
 		if(NumShipEnemyAfter<NumShipEnemyBefore){
 			Status=0;
 			SizeShip=0;

@@ -105,7 +105,6 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
         return false;
     }
 
-
     for (int i = 0; i < size; ++i) {
         if ((direction == "Est"||direction == "est" ) && (y + i >= 10 || Scacchiera[x][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
@@ -124,7 +123,44 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
 	}
+	//parte nuova per evitare che le navi siano affiancate
+    for (int i = 0; i < size; ++i) {
+        if ((direction == "Est"||direction == "est" ) && (x<9) && (Scacchiera[x+1][y + i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Est"||direction == "est" ) && (x>0) && (Scacchiera[x-1][y + i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
 
+        if ((direction == "Ovest"||direction == "ovest") && (x<9) && (Scacchiera[x+1][y - i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Ovest"||direction == "ovest") && (x>0) && (Scacchiera[x-1][y - i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+
+        if ((direction == "Nord" || direction == "nord" ) && (y<9) && (Scacchiera[x - i][y+1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Nord" || direction == "nord" ) && (y>0) && (Scacchiera[x - i][y-1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+
+        if ((direction == "Sud" || direction == "sud" ) && (y<9) && (Scacchiera[x + i][y+1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Sud" || direction == "sud" ) && (y>0) && (Scacchiera[x + i][y-1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+	}
 
 
 
