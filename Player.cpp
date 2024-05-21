@@ -125,6 +125,14 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
 	}
 	//parte nuova per evitare che le navi siano affiancate
     for (int i = 0; i < size; ++i) {
+		if ((direction == "Est"||direction == "est" ) && (i==0) && (y>0)&& (Scacchiera[x][y - 1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Est"||direction == "est" ) && (i==size-1) && (y+i<9)&& (Scacchiera[x][y+size] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
         if ((direction == "Est"||direction == "est" ) && (x<9) && (Scacchiera[x+1][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
@@ -134,6 +142,14 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
 
+		if ((direction == "Ovest"||direction == "ovest" ) && (i==0) && (y<9)&& (Scacchiera[x][y + 1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Ovest"||direction == "ovest" ) && (i==size-1) && (y-i>0)&& (Scacchiera[x][y-size] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
         if ((direction == "Ovest"||direction == "ovest") && (x<9) && (Scacchiera[x+1][y - i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
@@ -143,7 +159,17 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
 
-        if ((direction == "Nord" || direction == "nord" ) && (y<9) && (Scacchiera[x - i][y+1] != 0)) {
+
+
+		if ((direction == "Nord" || direction == "nord" ) && (i==0) && (x<9) && (Scacchiera[x + 1][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Nord" || direction == "nord" ) && (i==size-1) && (x-i>0) && (Scacchiera[x - size][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Nord" || direction == "nord" ) && (y<9) && (Scacchiera[x - i][y] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
@@ -152,6 +178,15 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
 
+
+		if ((direction == "Sud" || direction == "sud" ) && (i==0) && (x>0) && (Scacchiera[x - 1][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Sud" || direction == "sud" ) && (i==size-1) && (x+i<9) && (Scacchiera[x + size][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
         if ((direction == "Sud" || direction == "sud" ) && (y<9) && (Scacchiera[x + i][y+1] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
@@ -161,6 +196,14 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
 	}
+
+
+
+
+
+
+
+
 
 
 
