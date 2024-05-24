@@ -83,9 +83,7 @@ void Game::checkVittoria(Player *p) {
 
 void Game::Gioco(Game gioco, Player* p1, Player* p2){
     // setto vittoria a true, quando si vince si setta a false
-    cout << "Scegli la modalità di gioco:"  << endl;
-    cout << "1. Player vs Player" << endl;
-    cout << "2. Player vs PC" << endl;
+
     vittoria = true;
     currentPlayer = gioco.chiInizia(p1, p2);
 
