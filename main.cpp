@@ -39,6 +39,7 @@ string answer;
     Computer Computer1("Paolo Bonolis");
 
 
+
 if(Modalità){
     Game Game(&Player1, &Player2);
     Game.Gioco(Game, &Player1, &Player2);

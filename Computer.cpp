@@ -16,7 +16,7 @@ using namespace std;
 #include <ctime>
 
 
-Computer::Computer(string nome):Name(nome),Status(0),SizeShip(0){};
+Computer::Computer(string nome):Player(nome),Status(0),SizeShip(0){};
 
 
 //controllarlo magari facendoci una partita funziona solo se le navi non sono attaccate
@@ -315,7 +315,8 @@ string Computer::generateRandomDirection() {
 void Computer::createFleet() {
     srand(time(0)); // Inizializza il generatore di numeri casuali
 
-    int x, y;
+    int x;
+	int y;
     string dir;
     bool test;
 
