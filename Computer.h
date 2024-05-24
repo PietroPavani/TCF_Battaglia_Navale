@@ -29,7 +29,8 @@ public:
     }
     virtual void shooting(Player &);
     virtual void createFleet(); // crea flotta e posiziona
-
+    pair<int, int> generateRandomCoordinates();
+    string generateRandomDirection();
     
 
  
