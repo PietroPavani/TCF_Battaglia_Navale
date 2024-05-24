@@ -28,7 +28,7 @@ public:
     Player *chiInizia(Player*, Player*); // lancio un dado (estraggo a caso un numero) chi fa il numero più alto inizia, restituisco il giocatore che inizia --> CurrentPlayer = quello che ha vinto
     void Gioco(Game, Player* , Player*); // implementa in ordine: chiInizia --> Player --> posizionamento, cambioPlayer, posizionamento, cambioPlayer
                                   // turno e checkVittoria finchè non finisce il gioco
-    bool chooseModalità();
+
 
 private:
     Player* player1;
