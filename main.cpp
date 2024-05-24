@@ -36,7 +36,7 @@ string answer;
 
     Player Player1("Pietro");
     Player Player2("Ezio Maina");
-    Computer Computer1 ("Ezio Maina");
+    Computer Computer1("Paolo Bonolis");
 
 
 if(Modalità){
