@@ -10,10 +10,20 @@ using namespace std;
 #include "Player.h"
 #include "Nave.h"
 
-Player::Player(string nome):Name(nome){};
+
+
+Player::Player(string nome):Name(nome),NumShip(0){};
 
 void Player::setCella(int x, int y, int value){
     Scacchiera[x][y]=value;
+}
+
+int Player::getCella(int x,int y) const{
+	return Scacchiera[x][y];
+}
+
+int Player::getNumShip() const{
+	return NumShip;
 }
 
 
@@ -26,7 +36,6 @@ string Player::traduciCoordinate_in_Lettere(int riga, int colonna) {
 
 
 void Player::traduciLettere_in_Coordinate(int* x,int* y, string coord){
-
 	char CX = coord[0];
 	char CY = coord[1];
 	*y= (int)CY-48;
@@ -38,8 +47,6 @@ void Player::traduciLettere_in_Coordinate(int* x,int* y, string coord){
 	{
 		*x=((int)CX)-97;
 	}
-
-
 }
 
 
@@ -100,27 +107,109 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
         return false;
     }
 
-
     for (int i = 0; i < size; ++i) {
-        if (direction == "Est" && (y + i >= 10 || Scacchiera[x][y + i] != 0)) {
+        if ((direction == "Est"||direction == "est" ) && (y + i >= 10 || Scacchiera[x][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Ovest" && (y - i < 0 || Scacchiera[x][y - i] != 0)) {
+        if ((direction == "Ovest"||direction == "ovest")  && (y - i < 0 || Scacchiera[x][y - i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Nord" && (x - i < 0 || Scacchiera[x - i][y] != 0)) {
+        if ((direction == "Nord" || direction == "nord" ) && (x - i < 0 || Scacchiera[x - i][y] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
-        if (direction == "Sud" && (x + i >= 10 || Scacchiera[x + i][y] != 0)) {
+        if ((direction == "Sud" || direction == "sud" ) && (x + i >= 10 || Scacchiera[x + i][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+	}
+	//parte nuova per evitare che le navi siano affiancate
+    for (int i = 0; i < size; ++i) {
+		if ((direction == "Est"||direction == "est" ) && (i==0) && (y>0)&& (Scacchiera[x][y - 1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Est"||direction == "est" ) && (i==size-1) && (y+i<9)&& (Scacchiera[x][y+size] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Est"||direction == "est" ) && (x<9) && (Scacchiera[x+1][y + i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Est"||direction == "est" ) && (x>0) && (Scacchiera[x-1][y + i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+
+		if ((direction == "Ovest"||direction == "ovest" ) && (i==0) && (y<9)&& (Scacchiera[x][y + 1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Ovest"||direction == "ovest" ) && (i==size-1) && (y-i>0)&& (Scacchiera[x][y-size] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Ovest"||direction == "ovest") && (x<9) && (Scacchiera[x+1][y - i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Ovest"||direction == "ovest") && (x>0) && (Scacchiera[x-1][y - i] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+
+
+
+		if ((direction == "Nord" || direction == "nord" ) && (i==0) && (x<9) && (Scacchiera[x + 1][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Nord" || direction == "nord" ) && (i==size-1) && (x-i>0) && (Scacchiera[x - size][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Nord" || direction == "nord" ) && (y<9) && (Scacchiera[x - i][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Nord" || direction == "nord" ) && (y>0) && (Scacchiera[x - i][y-1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+
+
+		if ((direction == "Sud" || direction == "sud" ) && (i==0) && (x>0) && (Scacchiera[x - 1][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Sud" || direction == "sud" ) && (i==size-1) && (x+i<9) && (Scacchiera[x + size][y] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+        if ((direction == "Sud" || direction == "sud" ) && (y<9) && (Scacchiera[x + i][y+1] != 0)) {
+			cout << "Posizionamento non valido" << endl;
+            return false;
+        }
+		if ((direction == "Sud" || direction == "sud" ) && (y>0) && (Scacchiera[x + i][y-1] != 0)) {
 			cout << "Posizionamento non valido" << endl;
             return false;
         }
 	}
 
 
+
+
+
+
+
+
+
+
+
+/*  commentata perchè non dovrebbe più servire
 	for (int i = 0; i < size; ++i) {
         if (direction == "est" && (y + i > 10 || Scacchiera[x][y + i] != 0)) {
 			cout << "Posizionamento non valido" << endl;
@@ -139,7 +228,7 @@ bool Player::checkCaselle(int x, int y, int size, string direction)const{
             return false;
         }
     }
-
+*/
 	
 	return result;
 }
@@ -152,15 +241,16 @@ void Player::shooting(Player &p){
 	int x;
 	int y;
 	string coord;
+	// mettere il codice per nome giocatore
 	bool test=false;
 	do{cout << "\nDove vuoi sparare: inserire coordinate nel formato tipo A1\n";
 	cin >> coord;
 	
 	if (!validateCoordinateFormat(coord)) {
             cout << "\nFormato delle coordinate non valido. Reinserire le coordinate." << endl;
-            continue; // Salta il resto del ciclo e chiedi all'utente di reinserire le coordinate
+            test=true;
         }
-
+	else{
 	this->traduciLettere_in_Coordinate(&x,&y,coord);
 	if(p.Scacchiera[x][y] == 2 || p.Scacchiera[x][y] == 3){
 		cout << "\nLa Casella è già stata colpita \n";
@@ -169,7 +259,7 @@ void Player::shooting(Player &p){
 	if(p.Scacchiera[x][y] == 0 || p.Scacchiera[x][y] == 1){
 		test=false;
 	}
-	
+	}	
 	}
 	while(test);
 
@@ -200,6 +290,7 @@ bool Player::validateCoordinateFormat(const string& coord) const {
 
     return true;
 }
+
 
  
 void Player::createFleet(){
@@ -309,12 +400,14 @@ void Player::createFleet(){
 	//Flotta.push_back(new Torpediniera(&Scacchiera[5][5],"ovest"));
 }
 
+
 void Player::updateFleet(){
 	vector<Nave*>::iterator iter;
-
+	NumShip=0;
 	for(iter=Flotta.begin(); iter!=Flotta.end(); iter++) {
 		 (*(*iter)).calcoloDanni();
-   }
+		 if(!(*(*iter)).getAffondato()){NumShip++;}
+ }
 }
 
 bool Player::checkDefeat(){
