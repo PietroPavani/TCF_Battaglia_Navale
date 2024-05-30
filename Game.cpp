@@ -17,36 +17,44 @@ Game::Game(Player* p1, Player* p2) : player1(p1), player2(p2), currentPlayer(p1)
 
 
 
-Player* Game::chiInizia(Player* p1, Player* p2){
+Player* Game::chiInizia(Player* p1, Player* p2) {
     int result1;
     int result2;
-    do
-    {
-    cout << p1->getName() << " lancia il dado premendo Invio ..." << endl;
-    cin.ignore(); // Attendiamo che l'utente prema Invio
-    srand(static_cast<unsigned int>(time(nullptr))); // Inizializziamo il generatore di numeri casuali
-    result1 = (rand() % 6) + 1; // Generiamo un numero casuale tra 1 e 6
-    cout << "E' uscito " << result1 << endl;   
-    
-    cout << p2->getName() << " lancia il dado premendo Invio ..." << endl;
-    cin.ignore(); // Attendiamo che l'utente prema Invio
-    srand(static_cast<unsigned int>(time(nullptr))); // Inizializziamo il generatore di numeri casuali
-    result2 = (rand() % 6) + 1; // Generiamo un numero casuale tra 1 e 6
-    cout << "E' uscito " << result2 << endl;
-    } while (result1==result2);
-     
+    do {
+        cout << p1->getName() << " lancia il dado premendo Invio ..." << endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Pulisci il buffer di input
+        cin.get(); // Attendiamo che l'utente prema Invio
+        result1 = (rand() % 6) + 1; // Generiamo un numero casuale tra 1 e 6
+        cout << "E' uscito " << result1 << "\n\n" << endl;
 
-    if(result1 > result2){
-        cout << "Inizia " << p1->getName() << endl;
+        cout << p2->getName() << " lancia il dado premendo Invio ..." << endl;
+        //cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Pulisci il buffer di input
+        cin.get(); // Attendiamo che l'utente prema Invio
+        result2 = (rand() % 6) + 1; // Generiamo un numero casuale tra 1 e 6
+        cout << "E' uscito " << result2 << "\n\n" << endl;
+    } while (result1 == result2);
+
+    cout << "\n" << endl;
+    cout.flush(); // Assicura che l'output sia immediatamente visibile
+
+    int numDots = 3;
+    int delay = 2000 / numDots;
+
+    for (int i = 0; i < numDots; ++i) {
+        cout << ".";
+        cout.flush();
+        this_thread::sleep_for(chrono::milliseconds(delay));
+    }
+
+    if (result1 > result2) {
+        cout << "\nInizia " << p1->getName() << endl;
         return p1;
-    }
-
-    else{
-        cout << "Inizia " << p2->getName() << endl;
+    } else {
+        cout << "\nInizia " << p2->getName() << endl;
         return p2;
-    } 
-
     }
+
+}
 
 void Game::switchPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
@@ -60,7 +68,8 @@ void Game::setVittoria(){
 void Game::checkVittoria(Player *p) {
     vittoria = !(p->checkDefeat()); // checkDefeat restituisce true quando le navi sono a 0
     if(vittoria == false){
-        cout << "Hai perso!" << endl;
+        cout << "\n------------------------------------------------ \n" << endl;
+        cout << p->getName() << " hai perso!" << endl;
         cout.flush(); // Assicura che l'output sia immediatamente visibile
 
          int numDots = 3;
@@ -86,23 +95,26 @@ void Game::Gioco(Game gioco, Player* p1, Player* p2){
 
     vittoria = true;
     currentPlayer = gioco.chiInizia(p1, p2);
-
+    cout << "\n\n";
     // Fase iniziale di posizionamento
-    cout << currentPlayer->getName() << " posiziona le tue navi: " << endl;
-    currentPlayer->drawScacchiera();
+    cout << "\033[1m" << currentPlayer->getName() << " posiziona le tue navi:" << "\033[0m" << endl;
+    currentPlayer->drawScacchiera_posizionamento();
     currentPlayer->createFleet();
     switchPlayer();
-    cout << currentPlayer->getName() << " posiziona le tue navi: " << endl; 
-    currentPlayer->drawScacchiera();
+    cout << "\n\n";
+    cout << "\n------------------------------------------------ \n" << endl;
+    cout << "\n\n";
+    cout << "\033[1m" << currentPlayer->getName() << " posiziona le tue navi: " << " \033[0m" << endl;
+    currentPlayer->drawScacchiera_posizionamento();
     currentPlayer->createFleet();
     switchPlayer();
 
     // Inizio turni
     while(vittoria == true){
         cout << "\n------------------------------------------------ \n" << endl;
-        cout << currentPlayer->getName() << " è il tuo turno: " << endl;
+        cout << "\033[1m" << currentPlayer->getName() << " è il tuo turno: \033[0m" << endl;
         currentPlayer->shooting(*otherPlayer);
-        cout << otherPlayer->getName() << ": " << endl;
+        //cout << otherPlayer->getName() << ": " << endl;
         otherPlayer->updateFleet();
         otherPlayer->drawScacchiera();
         checkVittoria(otherPlayer);

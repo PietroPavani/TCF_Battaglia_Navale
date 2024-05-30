@@ -43,14 +43,14 @@ public:
     void updateFleet();
     bool checkDefeat();
     string getName() const;
+    vector<Nave*> Flotta;
+    int Scacchiera[10][10]={0};
     
 
  
 private:
 
-    int Scacchiera[10][10]={0};
-    string Name;
-    vector<Nave*> Flotta;
+    string Name;    
     int NumShip;
 
 

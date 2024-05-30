@@ -57,7 +57,7 @@ string Player::getName() const{
 // 0 mare 	1 nave nascosta		2 nave colpita 		3 mare mancato
 void Player::drawScacchiera()const{
     //cout << "                   "+Name+"\n             0 1 2 3 4 5 6 7 8 9\n"; Se si mette name potrebbe essere un casino
-	cout << "\n             0 1 2 3 4 5 6 7 8 9\n";
+	cout << "\n" << "\n             0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
 
 	for (int i = 0; i < 10; i++) {
@@ -77,7 +77,7 @@ void Player::drawScacchiera()const{
 }
 
 void Player::drawScacchiera_posizionamento()const{
-    cout << "                   "+Name+"\n             0 1 2 3 4 5 6 7 8 9\n";
+    cout << "\n" << "                   "+Name+"\n             0 1 2 3 4 5 6 7 8 9\n";
 	char letter = 'A';
 
 	for (int i = 0; i < 10; i++) {

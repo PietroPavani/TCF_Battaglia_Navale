@@ -77,7 +77,7 @@ void Computer::shooting(Player &p){
 		srand(time(NULL));
 		vector<string> PosDir;
 
-		if(XLastShot<9){
+		if(XLastShot<9){Scacchiera[8][8];
 			if(p.getCella(XLastShot+1,YLastShot) == 0 ||p.getCella(XLastShot+1,YLastShot)== 1){
 			PosDir.push_back("sud");}}
 		if(XLastShot>0){
@@ -302,9 +302,11 @@ void Computer::shooting(Player &p){
 
 //parte nuova
 
+
 pair<int, int> Computer::generateRandomCoordinates() {
-    return { rand() % 10, rand() % 10 }; // (scacchiera 10x10)
+    return make_pair(rand() % 10, rand() % 10); // (scacchiera 10x10)
 }
+
 
 string Computer::generateRandomDirection() {
     vector<string> directions = { "Nord", "Sud", "Est", "Ovest" };
@@ -314,7 +316,6 @@ string Computer::generateRandomDirection() {
 
 void Computer::createFleet() {
     srand(time(0)); // Inizializza il generatore di numeri casuali
-
     int x;
 	int y;
     string dir;
@@ -323,7 +324,8 @@ void Computer::createFleet() {
     for(int l = 1; l < 3; l++) {
         do {
             tie(x, y) = generateRandomCoordinates();
-            dir = generateRandomDirection(); // Genera una direzione casuale
+            //dir = generateRandomDirection(); Genera una direzione casuale
+			dir = "Nord";
             test = this->checkCaselle(x, y, 1, dir);
         } while(!test);
         Flotta.push_back(new Lancia(&Scacchiera[x][y], dir));

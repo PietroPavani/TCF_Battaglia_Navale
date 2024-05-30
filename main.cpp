@@ -13,6 +13,7 @@ using namespace std;
 
 int main(){
 bool Modalità;
+srand(static_cast<unsigned int>(time(nullptr))); // Inizializziamo il generatore di numeri casuali
 bool test=true;
 string answer;
     do{
@@ -34,20 +35,34 @@ string answer;
         Modalità=false;
     }
 
-    Player Player1("Pietro");
-    Player Player2("Ezio Maina");
+    string player1Name;
+    string player2Name;    
     Computer Computer1("Paolo Bonolis");
 
 
 
 if(Modalità){
-    Game Game(&Player1, &Player2);
-    Game.Gioco(Game, &Player1, &Player2);
+    cout << "Inserire il nome di Player 1: " << endl;
+    cin >> player1Name;
+    cout << "Inserire il nome di Player 2: " << endl;
+    cin >> player2Name;
+
+    Player Player1(player1Name);
+    Player Player2(player2Name);
+
+    Game game(&Player1, &Player2);
+    game.Gioco(game, &Player1, &Player2);
 
 }
 else {
-    Game Game(&Player1, &Computer1);
-    Game.Gioco(Game, &Player1, &Computer1);
+    cout << "Inserire il nome di Player 1: " << endl;
+    cin >> player1Name;
+
+    Player Player1(player1Name);
+    Computer Computer1("Paolo Bonolis");
+
+    Game game(&Computer1, &Player1);
+    game.Gioco(game, &Computer1, &Player1);
 
 }
 

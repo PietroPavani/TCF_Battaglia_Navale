@@ -23,7 +23,7 @@ void Nave::calcoloDanni(){
     }
     if(x==0){
         Affondato = true;
-        cout<<"Arg... La nave "<< this->getSimbolo()<< " è colpita e affondata!"<< endl;
+        cout<<"La nave "<< this->getSimbolo()<< " è colpita e affondata!"<< endl;
     }
 }
 

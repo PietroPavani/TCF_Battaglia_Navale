@@ -42,9 +42,9 @@ private:
     int YLastShot;
     int XLastShot;
     int Status;
-    int Scacchiera[10][10]={0};
+    //int Scacchiera[10][10]={0};
     string Name;
-    vector<Nave*> Flotta;
+    //vector<Nave*> Flotta;
 
 
 };
